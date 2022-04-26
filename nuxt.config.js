@@ -43,7 +43,20 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/apollo',
   ],
+
+  apollo: {
+    cookieAttributes: {
+      expires: 7,
+    },
+    includeNodeModules: true,
+    authenticationType: "Bearer",
+    errorHandler: "~/plugins/apollo-error-handler.js",
+    clientConfigs: {
+      default: "~/apollo/clientConfig.js",
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
