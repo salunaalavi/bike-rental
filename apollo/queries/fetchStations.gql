@@ -1,0 +1,6 @@
+query {
+  Stations {
+    id
+    name
+  }
+}

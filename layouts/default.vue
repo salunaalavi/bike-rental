@@ -40,6 +40,9 @@
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
+      <section v-for="user in Users" :key="user.id">
+        <v-btn :to="`/`"> {{ user.name }} </v-btn>
+      </section>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -63,6 +66,8 @@
 </template>
 
 <script>
+import users from '~/apollo/queries/fetchUsers'
+
 export default {
   name: 'DefaultLayout',
   data() {
@@ -78,8 +83,8 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          title: 'Stations',
+          to: '/stations',
         },
       ],
       miniVariant: false,
@@ -87,6 +92,17 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js',
     }
+  },
+  apollo: {
+    Users: {
+      query: users,
+      prefetch: ({ route }) => ({ username: route.params.username }),
+      variables() {
+        return {
+          username: this.$route.params.username,
+        }
+      },
+    },
   },
 }
 </script>
