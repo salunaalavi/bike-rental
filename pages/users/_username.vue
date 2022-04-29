@@ -1,28 +1,26 @@
 <template>
- <div class="container">
-   <h1>Stations</h1>
+ <v-container>
+   <section v-for="user in Users" :key="user.id">
+     <h3>
+       {{ user.name }}
+     </h3>
+   </section>
 
-   <main class="game-container">
-     <section v-for="station in Stations" :key="station.id">
-       <nuxt-link :to="`/bikes/${station.id}`">
-          {{ station.name }}
-        </nuxt-link>
-     </section>
-   </main>
- </div>
+   <v-main>
+     <v-btn @click="handleLogOut">
+        log out
+      </v-btn>
+   </v-main>
+ </v-container>
 </template>
 
 <script>
-import stations from "~/apollo/queries/fetchStations";
-import users from "~/apollo/queries/fetchUsers";
+import users from "~/apollo/queries/fetchUser";
 
 export default {
   name: "StationsPage",
+  middleware: "authenticated",
   apollo: {
-    Stations: {
-      prefetch: true,
-      query: stations
-    },
     Users: {
       query: users,
       prefetch: ({ route }) => ({ username: route.params.username }),
@@ -34,7 +32,12 @@ export default {
     },
   },
   head: {
-    title: "Stations"
+    title: "User Page"
+  },
+  methods: {
+    handleLogOut() {
+      this.$store.dispatch("logOut");
+    }
   }
 };
 </script>
