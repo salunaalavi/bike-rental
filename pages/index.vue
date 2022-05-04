@@ -1,70 +1,71 @@
 <template>
-  <v-container class="lighten-5 mb-6" fluid>
-    <v-row align="stretch" dense>
-      <v-col cols="12" offset-md2 mx-auto sm="6" md="6" lg="4">
-        <v-alert v-if="errors.length" variant="danger" dismissible show>
-          <p v-for="(error, i) in errors" :key="i + 1" class="m-0">
-            {{ error }}
-          </p>
-        </v-alert>
-        <v-form>
-          <v-text-field
-            v-model="form.email"
-            label="Username"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="form.password"
-            label="Password"
-            required
-          ></v-text-field>
-          <v-btn
-            color="success"
-            class="mr-4"
-            :to="`/users/${form.email}`"
-            @click="validate"
-          >
-            <v-spinner v-if="formBusy" small class="mr-2" /> Login
-          </v-btn>
-        </v-form>
-      </v-col>
-    </v-row>
+  <v-container>
+    <div>
+      <h3 class="title">{{ new Date() }}</h3>
+      <h2 class="subtitle">Welcome Page</h2>
+      <div class="links">
+        <v-btn v-if="isLoggedIn" @click="handleLogOut">
+          Log Out
+        </v-btn>
+        <v-btn v-else to="/login">
+          Login
+        </v-btn>
+        <v-btn to="/stations">
+          Stations
+        </v-btn>
+        <v-btn to="/users">
+          Users
+        </v-btn>
+      </div>
+    </div>
   </v-container>
 </template>
 
 <script>
-import users from '~/apollo/queries/fetchUsers'
-
 export default {
-  name: 'LoginPage',
-  data() {
-    return {
-      form: {
-        email: '',
-        password: '',
-      },
-      formBusy: false,
-      errors: [],
+  name: 'IndexPage',
+  computed: {
+    isLoggedIn () {
+      return this.$store.getters.isLoggedIn
     }
   },
-  apollo: {
-    Users: {
-      query: users,
-      prefetch: true,
-      variables() {
-        return {
-          username: this.form.email,
-        }
-      },
-    },
-  },
-  head: {
-    title: 'Stations',
-  },
   methods: {
-    validate() {
-      this.formBusy = true
-    },
-  },
-}
+    handleLogOut() {
+      this.$store.dispatch('logOut')
+    }
+  }
+};
 </script>
+
+<style scoped>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 50px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}
+</style>
