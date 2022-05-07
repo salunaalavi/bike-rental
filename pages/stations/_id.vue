@@ -17,6 +17,14 @@
                 <v-icon>mdi-bike</v-icon>
               </nuxt-link>
             </v-btn>
+            <section v-if="bike.display">
+              <section v-for="user in Users" :key="user.id">
+                <v-btn @click="rent(bike.id, user.id)"> Rent </v-btn>
+              </section>
+            </section>
+            <section v-else>
+              <v-btn> Rented </v-btn>
+            </section>
           </section>
         </v-main>
       </v-col>
@@ -25,6 +33,8 @@
 </template>
 <script>
 import bikes from '~/apollo/queries/fetchBikes'
+import users from '~/apollo/queries/fetchUser'
+import rents from '~/apollo/mutations/rentBikes'
 
 export default {
   name: 'BikesPage',
@@ -32,10 +42,43 @@ export default {
   apollo: {
     Bikes: {
       query: bikes,
-      prefetch: ({ route }) => ({ station_id: route.params.id }),
+      prefetch: ({ route }) => ({ id: route.params.id }),
       variables() {
-        return { station_id: this.$route.params.id }
+        return { id: this.$route.params.id }
       },
+    },
+    Users: {
+      query: users,
+      prefetch: ({ store }) => ({ username: store.state.auth.username }),
+      variables() {
+        return {
+          username: this.userState,
+        }
+      },
+    },
+  },
+  computed: {
+    userState() {
+      if (this.$store.getters.isLoggedIn) {
+        return this.$store.state.auth.username
+      } else {
+        return null
+      }
+    },
+  },
+  methods: {
+    async rent(bikeId, userId) {
+      try {
+        await this.$apollo.mutate({
+          mutation: rents,
+          variables: {
+            bikeId,
+            userId,
+          },
+        })
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 }

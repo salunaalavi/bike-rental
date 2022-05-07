@@ -1,0 +1,7 @@
+query user($id: uuid) {
+  Users(where: {id: {_eq: $id}}) {
+    id
+    name
+    username
+  }
+}

@@ -1,8 +1,10 @@
-query user($bike_id: uuid, $station_id: uuid) {
-  Rents(where: {bike_id: {_eq: $bike_id}, station_id: {_eq: $station_id}}) {
+query user($user_id: uuid) {
+  Rents(where: {user_id: {_eq: $user_id}}) {
     id
-    station_id
     user_id
     bike_id
+    Bike {
+      name
+    }
   }
 }
