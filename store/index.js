@@ -1,6 +1,3 @@
-import VuexORM from '@vuex-orm/core'
-import database from '../orm/database'
-
 const initialState = () => ({
   auth: null,
   error: null
@@ -37,5 +34,3 @@ export const getters = {
     return !!state.auth
   }
 }
-
-export const plugins = [ VuexORM.install(database) ]

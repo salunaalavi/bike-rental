@@ -17,49 +17,14 @@ app.use (bodyParser.urlencoded ({
 
 app.post('/login', (req, res, next) => {
   const { username, password } = req.body;
-  const valid = username === 'salunaalavi' && password === "123";
-//   app.apolloProvider.defaultClient
-//     .query({
-//       query: users,
-//       variables: {
-//         username
-//       }
-//       })
-//     .then(result => {
-//     if (result.data.Users.length > 0) {
-//       const user = result.data.Users[0];
-//       const accessToken = jsonwebtoken.sign({
-//         id: user.id,
-//         username: user.username,
-//         password: user.password
-//       }, 'secret', {
-//         expiresIn: '1h'
-//       });
-//       res.json({
-//         token: accessToken
-//       });
-//     } else {
-//       res.status(401).json({
-//         message: 'Invalid credentials'
-//       });
-//     }
-//   });
-// });
-
-  if (!valid) {
-    return res.json({
-      error: "Invalid username or password"
-    });
-  }
-
-  const accessToken = jsonwebtoken.sign(
-    {
-      username,
-      name: 'User ' + username,
-      scope: ['test', 'user']
-    },
-    'dummy'
-  )
+  const accessToken = jsonwebtoken.sign({
+    username,
+    password,
+    name: 'User ' + username + password,
+    scope: ['test', 'user']
+  }, 'dummy', {
+    expiresIn: '1h'
+  })
 
   res.json({
     accessToken

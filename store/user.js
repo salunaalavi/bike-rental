@@ -1,20 +1,13 @@
 import axios from "axios";
-import User from "@/models/User";
 
 export const state = () => {
 
 }
 
 export const actions = {
-  async getListUsers({ commit }) {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    commit("SAVE_LIST_USER", data);
-  },
-  async login({ commit }, { username, password }) {
+  async login({ commit }, { username }) {
     try {
-      const { data } = await axios.post("/api/login", {username, password})
+      const { data } = await axios.post("/api/login", {username})
       if (data.error) {
         commit("LOGIN_FAIL", data.error, { root: true });
         return;
@@ -22,7 +15,6 @@ export const actions = {
 
       const user = {
         username, 
-        password,
         token: data.accessToken
       }
       commit("LOGIN_SUCCESS");
@@ -35,9 +27,6 @@ export const actions = {
 };
 
 export const mutations = {
-  SAVE_LIST_USER(state, responseData) {
-    User.create({ data: responseData });
-  },
   LOGIN_SUCCESS(state) {
     this.$router.push('/stations')
   },
