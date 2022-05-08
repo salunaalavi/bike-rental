@@ -35,6 +35,7 @@
 import bikes from '~/apollo/queries/fetchBikes'
 import users from '~/apollo/queries/fetchUser'
 import rents from '~/apollo/mutations/rentBikes'
+import subBikes from '~/apollo/subscriptions/subBikes'
 
 export default {
   name: 'BikesPage',
@@ -45,6 +46,12 @@ export default {
       prefetch: ({ route }) => ({ id: route.params.id }),
       variables() {
         return { id: this.$route.params.id }
+      },
+      subscribeToMore: {
+        document: subBikes,
+        updateQuery: (previousResult, { subscriptionData }) => {
+          return previousResult;
+        }
       },
     },
     Users: {

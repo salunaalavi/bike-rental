@@ -46,6 +46,7 @@ import users from "~/apollo/queries/fetchUserById";
 import rents from "~/apollo/queries/fetchRents";
 import stations from "~/apollo/queries/fetchStations";
 import returnBike from "~/apollo/mutations/returnBikes";
+import subRents from "~/apollo/subscriptions/subRents";
 
 export default {
   name: "StationsPage",
@@ -68,6 +69,12 @@ export default {
         return {
           user_id: this.$route.params.id,
         };
+      },
+      subscribeToMore: {
+        document: subRents,
+        updateQuery: (previousResult, { subscriptionData }) => {
+          return subscriptionData.data;
+        }
       },
     },
     Stations: {
