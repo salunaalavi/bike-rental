@@ -1,0 +1,7 @@
+subscription {
+  Bikes {
+    id
+    name
+    display
+  }
+}

@@ -1,0 +1,12 @@
+mutation return($rentId: uuid, $stationId: uuid, $bikeId: uuid) {
+  update_Bikes(where: {id: {_eq: $bikeId}}, _set: {display: true, station_id: $stationId}) {
+    returning {
+      id
+    }
+  }
+  delete_Rents(where: {id: {_eq: $rentId}}) {
+    returning {
+      id
+    }
+  }
+}

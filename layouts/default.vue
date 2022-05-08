@@ -42,7 +42,7 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
       <section>
-        <v-btn v-for="user in Users" :key="user.id" :to="`/users/${user.username}`">
+        <v-btn v-for="user in Users" :key="user.id" :to="`/users/${user.id}`">
           {{ user.name }}
         </v-btn>
       </section>
