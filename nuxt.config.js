@@ -20,7 +20,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   serverMiddleware: [
-    '~/api/index.js'
+    { path: '/api', handler: '~/api/index.js' }
   ],
 
   // Global CSS: https://go.nuxtjs.dev/config-css
