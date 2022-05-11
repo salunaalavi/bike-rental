@@ -9,15 +9,8 @@
       <v-col cols="12" sm="12" md="12" lg="12" xl="12">
         <v-main>
           <section v-for="bike in Bikes" :key="bike.id">
-            <nuxt-link :to="`/bikes/${bike.id}`">
               {{ bike.name }}
-            </nuxt-link>
-            <v-btn>
-              <nuxt-link :to="`/stations/${$route.params.id}/${bike.id}`">
-                <v-icon>mdi-bike</v-icon>
-              </nuxt-link>
-            </v-btn>
-            <section v-if="bike.display">
+            <section v-if="bike.isRented">
               <section v-for="user in Users" :key="user.id">
                 <v-btn @click="rent(bike.id, user.id)"> Rent </v-btn>
               </section>
@@ -50,7 +43,7 @@ export default {
       subscribeToMore: {
         document: subBikes,
         updateQuery: (previousResult, { subscriptionData }) => {
-          return previousResult;
+          return subscriptionData.data;
         }
       },
     },

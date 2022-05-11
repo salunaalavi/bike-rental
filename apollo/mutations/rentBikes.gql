@@ -1,5 +1,5 @@
 mutation rental($bikeId: uuid, $userId: uuid) {
-  update_Bikes(where: {id: {_eq: $bikeId}}, _set: {display: false}) {
+  update_Bikes(where: {id: {_eq: $bikeId}}, _set: {isRented: false}) {
     returning {
       id
     }
