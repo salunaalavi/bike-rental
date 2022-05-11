@@ -72,8 +72,17 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      name: 'bike-rental',
+      author: 'salunaalavi',
+    },
     manifest: {
       lang: 'en',
+      name: 'bike-rental',
+      description: 'bike-rental - a vue.js frontend project by @salunaalavi',
+      useWebmanifestExtension: false,
+      start_url: '/',
+      theme_color: '#FF6666',
     },
   },
 
