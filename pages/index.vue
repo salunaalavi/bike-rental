@@ -13,8 +13,8 @@
         <v-btn to="/stations">
           Stations
         </v-btn>
-        <v-btn to="/users">
-          Users
+        <v-btn to="/maps">
+          Maps
         </v-btn>
       </div>
     </div>

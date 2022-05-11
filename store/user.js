@@ -28,6 +28,6 @@ export const actions = {
 
 export const mutations = {
   LOGIN_SUCCESS(state) {
-    this.$router.push('/stations')
+    this.$router.push('/')
   },
 };
