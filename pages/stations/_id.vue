@@ -9,7 +9,7 @@
       <v-col cols="12" sm="12" md="12" lg="12" xl="12">
         <v-main>
           <section v-for="bike in Bikes" :key="bike.id">
-              {{ bike.name }}
+            {{ bike.name }}
             <section v-if="bike.isRented">
               <section v-for="user in Users" :key="user.id">
                 <v-btn @click="rent(bike.id, user.id)"> Rent </v-btn>
@@ -43,8 +43,10 @@ export default {
       subscribeToMore: {
         document: subBikes,
         updateQuery: (previousResult, { subscriptionData }) => {
-          return subscriptionData.data;
-        }
+          return {
+            Bikes: [...previousResult.Bikes, subscriptionData.data.subBikes],
+          }
+        },
       },
     },
     Users: {

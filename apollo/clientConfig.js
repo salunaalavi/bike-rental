@@ -7,6 +7,6 @@ export default function (context) {
       credentials: "same-origin",
     },
     cache: new InMemoryCache(),
-    wsEndpoint: "ws://bike-station.hasura.app/v1/graphql",
+    wsEndpoint: "wss://bike-station.hasura.app/v1/graphql",
   };
 }

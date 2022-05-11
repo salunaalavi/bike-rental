@@ -1,0 +1,10 @@
+subscription {
+  Stations {
+    id
+    name
+    Position {
+      lat
+      lng
+    }
+  }
+}
