@@ -1,6 +1,10 @@
-query {
+{
   Stations {
     id
     name
+    Position {
+      lat
+      lng
+    }
   }
 }
