@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const state = () => {
 
 }
@@ -7,7 +5,7 @@ export const state = () => {
 export const actions = {
   async login({ commit }, { username }) {
     try {
-      const { data } = await axios.post("/api/login", {username})
+      const { data } = await this.$axios.post("/api/login", {username})
       if (data.error) {
         commit("LOGIN_FAIL", data.error, { root: true });
         return;
