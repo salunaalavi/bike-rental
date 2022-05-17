@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <!-- <v-container>
     <div>
       <h3 class="title">{{ new Date() }}</h3>
       <h2 class="subtitle">Welcome Page</h2>
@@ -18,27 +18,40 @@
         </v-btn>
       </div>
     </div>
-  </v-container>
+  </v-container> -->
+  <v-app>
+    <v-main class="pt-0">
+      <home />
+      <about />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+import home from '~/components/landing_page/HeroSection'
+import about from '~/components/landing_page/AboutSection'
+
 export default {
   name: 'IndexPage',
+  components: {
+    home,
+    about,
+  },
   computed: {
-    isLoggedIn () {
+    isLoggedIn() {
       return this.$store.getters.isLoggedIn
-    }
+    },
   },
   methods: {
     handleLogOut() {
       this.$store.dispatch('logOut')
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
-<style scoped>
-.container {
+<style>
+/* .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -67,5 +80,14 @@ export default {
 
 .links {
   padding-top: 15px;
+} */
+</style>
+
+<style scoped>
+.v-main {
+  background-image: url('~static/img/bgMain.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 </style>

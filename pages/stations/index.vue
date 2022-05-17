@@ -1,26 +1,28 @@
 <template>
-  <v-container>
-    <h1>Stations</h1>
-    <v-main>
-      <section v-for="station in Stations" :key="station.id">
-        <nuxt-link :to="`/stations/${station.id}`">
-          {{ station.name }}
-        </nuxt-link>
-      </section>
-    </v-main>
-  </v-container>
+  <v-main>
+    <v-container>
+      <h1>Stations</h1>
+      <v-main class="pt-0">
+        <StationCard :stations="stations" />
+      </v-main>
+    </v-container>
+  </v-main>
 </template>
 
 <script>
-import stations from '~/apollo/queries/fetchStations'
+import FETCH_STATIONS from '~/apollo/queries/fetchStations'
+import StationCard from '~/components/stations/StationCard'
 
 export default {
   name: 'StationsPage',
+  components: {
+    StationCard,
+  },
   middleware: 'authenticated',
   apollo: {
-    Stations: {
+    stations: {
       prefetch: true,
-      query: stations,
+      query: FETCH_STATIONS,
     },
   },
   head: {

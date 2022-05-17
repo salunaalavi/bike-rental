@@ -1,9 +1,9 @@
 subscription {
-  Rents {
+  rents {
     id
     user_id
     bike_id
-    Bike {
+    bike {
       name
     }
   }

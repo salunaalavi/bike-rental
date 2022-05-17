@@ -8,7 +8,7 @@
     <v-row>
       <v-col cols="12" sm="12" md="12" lg="12" xl="12">
         <v-main>
-          <section v-for="rent in Rents" :key="rent.id">
+          <section v-for="rent in rents" :key="rent.id">
             rent id: {{ rent.id }}
           </section>
         </v-main>
@@ -17,14 +17,14 @@
   </v-container>
 </template>
 <script>
-import rents from '~/apollo/queries/fetchRents'
+import FETCH_RENTS from '~/apollo/queries/fetchRents'
 
 export default {
   name: 'BikesPage',
   middleware: 'authenticated',
   apollo: {
-    Rents: {
-      query: rents,
+    rents: {
+      query: FETCH_RENTS,
       prefetch: ({ route, store }) => ({
         station_id: route.params.stationId,
         bike_id: route.params.bikeId,

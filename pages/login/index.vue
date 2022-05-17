@@ -1,5 +1,5 @@
 <template>
-  <v-container class="lighten-5 mb-6" fluid>
+  <v-main class="lighten-5 mb-6" fluid>
     <v-row align="stretch" dense>
       <v-col cols="12" offset-md2 mx-auto sm="6" md="6" lg="4">
         <p v-if="error" class="help is-danger">{{ error }}</p>
@@ -32,7 +32,7 @@
         </v-form>
       </v-col>
     </v-row>
-  </v-container>
+  </v-main>
 </template>
 <script>
 export default {

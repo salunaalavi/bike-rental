@@ -1,4 +1,4 @@
-query user($username: String) {
+subscription($username: String) {
   users(where: {username: {_eq: $username}}) {
     id
     name

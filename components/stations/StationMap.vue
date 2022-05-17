@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import GoogleMapMarker from './GoogleMapMarker'
+import GoogleMapMarker from '../GoogleMapMarker'
 import stations from '~/apollo/queries/fetchStations'
 
 export default {
@@ -26,13 +26,11 @@ export default {
       query: stations,
     },
   },
-  data() {
-    return {
-      center: {
-        lat: -6.7495268,
-        lng: 110.7585118,
-      },
-    }
+  props: {
+    center: {
+      type: Object,
+      required: true,
+    },
   },
   head: {
     title: 'Stations',
