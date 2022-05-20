@@ -3,5 +3,10 @@ query user($id: uuid) {
     id
     name
     username
+    email
+    provinsi
+    kota
+    kecamatan
+    kelurahan
   }
 }

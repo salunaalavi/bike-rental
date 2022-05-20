@@ -1,5 +1,5 @@
-subscription($username: String) {
-  users(where: {username: {_eq: $username}}) {
+subscription {
+  users {
     id
     name
     username

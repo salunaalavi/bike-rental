@@ -5,6 +5,7 @@
     position {
       lat
       lng
+      address
     }
   }
 }

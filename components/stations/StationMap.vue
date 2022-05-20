@@ -1,6 +1,6 @@
 <template>
   <section>
-    <gmap-map :zoom="16" :center="center" style="width: 100%; height: 600px">
+    <gmap-map :zoom="16" :center="center" style="max-width: 100%; height: 350px">
       <GoogleMapMarker
         v-for="station in stations"
         :key="station.id"

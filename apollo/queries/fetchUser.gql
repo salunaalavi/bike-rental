@@ -3,5 +3,10 @@ query user($username: String) {
     id
     name
     username
+    email
+    provinsi
+    kota
+    kecamatan
+    kelurahan
   }
 }

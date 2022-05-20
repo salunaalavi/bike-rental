@@ -90,17 +90,22 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
+        light: {
+          primary: '#5B85AA',
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
+          secondary: '#21D19F',
+          info: '#6BA368',
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+      },
+    },
+    treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Josefin Sans'
       },
     },
   },

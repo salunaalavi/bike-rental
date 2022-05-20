@@ -16,11 +16,15 @@
             class="my-3 yellow transition-swing"
             :elevation="hover ? 24 : 6"
             :class="{ 'on-hover': hover }"
+            color="secondary"
             shaped
             outlined
             :disabled="bike.available === false"
           >
-            <v-img height="auto" src="https://res.cloudinary.com/sal15/image/upload/v1652776414/pngwing.com_qbgem6.png"></v-img>
+            <v-img
+              height="auto"
+              src="https://res.cloudinary.com/sal15/image/upload/v1652776414/pngwing.com_qbgem6.png"
+            ></v-img>
             <v-container fill-height fluid>
               <v-layout>
                 <v-flex
@@ -31,11 +35,11 @@
                 >
                   <section v-if="bike.available">
                     <section v-for="user in users" :key="user.id">
-                      <v-btn @click="rent(bike.id, user.id)"> Rent </v-btn>
+                      <v-btn rounded outlined @click="rent(bike.id, user.id)"> Rent </v-btn>
                     </section>
                   </section>
                   <section v-else>
-                    <v-btn> Rented </v-btn>
+                    <v-btn rounded outlined> Rented </v-btn>
                   </section>
                 </v-flex>
               </v-layout>

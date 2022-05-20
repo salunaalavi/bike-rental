@@ -1,25 +1,26 @@
 <template>
   <section id="hero">
-    <v-parallax src="/img/bgHero.jpg" height="750">
+    <v-parallax src="/img/family-bike.jpg" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1 class="display-2 font-weight-bold mb-4">City Bike</h1>
-              <h1 class="font-weight-light">
+              <h1 class="display-2 font-weight-bold mb-4" style="color: rgb(91, 133, 170)">City Bike</h1>
+              <h1 class="font-weight-light" style="color: rgb(91, 133, 170)">
                 Lorem ipsum dolor sit amet consectetur <br />
                 adipisicing elit. Maiores porro voluptatibus <br />
                 delectus nam optio harum!
               </h1>
               <v-btn
                 class="mt-5"
+                color="primary"
                 rounded
                 outlined  
                 large
                 dark
                 @click="$vuetify.goTo('#features')"
               >
-                Saiba mais
+                More Info
                 <v-icon class="ml-2">mdi-arrow-down</v-icon>
               </v-btn>
               <div class="video d-flex align-center py-4">
@@ -77,17 +78,13 @@
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="space-around">
-            <!-- <v-col cols="12" class="text-center">
-              <h1 class="font-weight-light display-2">Title</h1>
-              <h1 class="font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </v-col> -->
             <v-col
               v-for="(feature, i) in features"
               :key="i"
               cols="12"
-              sm="4"
+              xs="12"
+              sm="6"
+              md="4"
               class="text-center"
             >
               <v-hover v-slot:="{ hover }">
@@ -99,7 +96,7 @@
                 >
                   <v-img
                     :src="feature.img"
-                    max-width="100px"
+                    max-width="300px"
                     class="d-block ml-auto mr-auto"
                     :class="{ 'zoom-efect': hover }"
                   ></v-img>
@@ -139,19 +136,19 @@ export default {
       videoId: "i8IvvHJssWE",
       features: [
         {
-          img: require("~/static/img/icon2.png"),
-          title: "Design Limpo",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("~/static/img/Malta_App.png"),
+          title: "How it Works",
+          text: "Sign up once and rent bikes via app, BikeComputer, terminal or hotline call.",
         },
         {
-          img: require("~/static/img/icon1.png"),
-          title: "Dados Seguros",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("~/static/img/SliderBerlin2_2.jpg"),
+          title: "Free",
+          text: "Get a bike to roam arround the city, without even buy one.",
         },
         {
-          img: require("~/static/img/icon3.png"),
-          title: "Código Aberto",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("~/static/img/SliderBerlin3.jpg"),
+          title: "Locations",
+          text: "Rent a nextbike anytime, located in almost 300 cities or in 26 countries worldwide.",
         },
       ],
     };
@@ -163,7 +160,7 @@ export default {
 
 <style lang="scss">
 .circle {
-  stroke: white;
+  stroke: rgb(33, 209, 159);
   stroke-dasharray: 650;
   stroke-dashoffset: 650;
   -webkit-transition: all 0.5s ease-in-out;
@@ -187,7 +184,7 @@ export default {
     .triangle {
       stroke-dashoffset: 0;
       opacity: 1;
-      stroke: white;
+      stroke: rgb(33, 209, 159);
       animation: nudge 0.7s ease-in-out;
       @keyframes nudge {
         0% {

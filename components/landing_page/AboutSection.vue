@@ -50,9 +50,9 @@
             </v-col>
             <v-col cols="12" md="5" class="d-none d-md-flex">
               <v-img
-                src="/img/ill1.svg"
+                src="https://res.cloudinary.com/sal15/image/upload/v1652776414/pngwing.com_qbgem6.png"
                 class="d-block ml-auto mr-auto"
-                max-width="400px"
+                width="100%"
               />
             </v-col>
           </v-row>
@@ -64,6 +64,6 @@
 
 <style scoped>
 #about {
-  background-color: #f4f7f5;
+  background-color: rgb(33, 209, 159);
 }
 </style>

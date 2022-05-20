@@ -5,6 +5,7 @@ subscription {
     position {
       lat
       lng
+      address
     }
   }
 }

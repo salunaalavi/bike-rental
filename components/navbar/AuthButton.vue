@@ -1,7 +1,10 @@
 <template>
   <section>
     <v-btn v-for="(item, i) in items" :key="i" link text :to="item.to">
-      <span class="mr-2">{{ item.title }}</span>
+        <p class="font-weight-medium ma-2" style="color: black">{{ item.title }}</p>
+    </v-btn>
+    <v-btn v-if="isLoggedIn" link text to="/stations">
+        <p class="font-weight-medium ma-2" style="color: black">STATIONS</p>
     </v-btn>
     <v-btn
       v-for="user in users"
@@ -9,11 +12,12 @@
       rounded
       outlined
       :to="`/users/${user.id}`"
+      style="color: black"
     >
       cek sepeda
     </v-btn>
-    <v-btn v-if="isLoggedIn" @click="handleLogOut"> log out </v-btn>
-    <v-btn v-else rounded outlined to="/login"> log in </v-btn>
+    <v-btn v-if="isLoggedIn" class="font-weight-medium ma-2" style="color: black" link text @click="handleLogOut"> log out </v-btn>
+    <v-btn v-else rounded outlined to="/login" style="color: black"> log in </v-btn>
   </section>
 </template>
 
@@ -38,19 +42,19 @@ export default {
           username: this.userState,
         }
       },
-    //   subscribeToMore: {
-    //     document: SUBSCRIPTION_USER,
-    //     updateQuery: (previousResult, { subscriptionData }) => {
-    //       return {
-    //         users: [...previousResult.users, subscriptionData.data.subUser],
-    //       }
-    //     },
-    //   },
+      //   subscribeToMore: {
+      //     document: SUBSCRIPTION_USER,
+      //     updateQuery: (previousResult, { subscriptionData }) => {
+      //       return {
+      //         users: [...previousResult.users, subscriptionData.data.subUser],
+      //       }
+      //     },
+      //   },
     },
   },
   async asyncData({ app, store }) {
-    const client = app.apolloProvider.defaultClient;
-    const { userState } = store.state.auth.username;
+    const client = app.apolloProvider.defaultClient
+    const { userState } = store.state.auth.username
 
     const res = await client.query({
       query: FETCH_USER,
@@ -59,8 +63,8 @@ export default {
       },
     })
 
-    const { users } = res.data;
-    
+    const { users } = res.data
+
     return {
       users,
     }

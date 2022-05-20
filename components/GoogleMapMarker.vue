@@ -10,14 +10,14 @@
         :opened="infoWinOpen"
         @closeclick="infoWinOpen = false"
       >
-        <b style="color: black">{{ station.name }}</b>
+        <span style="color: black; font-size: 16px">{{ station.name }}</span>
         <br />
         <br />
-        <code style="color: black">
-          Lat: {{ station.position.lat }},
-          <br />
-          Lng: {{ station.position.lng }}
-        </code>
+        <span style="color: black">
+          {{ station.position.address }}
+        </span>
+        <br />
+        <br />
         <router-link style="white" :to="`/stations/${station.id}`">
           {{ station.name }}
         </router-link>

@@ -1,10 +1,9 @@
 <template>
-  <v-main>
+  <v-main v-if="!loading">
     <v-container>
       <h1>Stations</h1>
-      <v-main class="pt-0">
-        <StationCard :stations="stations" />
-      </v-main>
+      <v-text-field v-model="searchTerm" placeholder="Search" @input="searchItems"></v-text-field>
+      <StationCard :stations="stations" />
     </v-container>
   </v-main>
 </template>
@@ -19,7 +18,12 @@ export default {
     StationCard,
   },
   middleware: 'authenticated',
+  data: () => ({
+    searchTerm: '',
+    loading: 0
+  }),
   apollo: {
+    $loadingKey: 'loading',
     stations: {
       prefetch: true,
       query: FETCH_STATIONS,
@@ -27,6 +31,15 @@ export default {
   },
   head: {
     title: 'Stations',
+  },
+  methods: {
+    searchItems(e) {
+      if (!this.searchTerm) {
+        this.stations = this.stations.filter(station => station.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      } else {
+        this.stations = this.stations.filter(station => station.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      }
+    },
   },
 }
 </script>

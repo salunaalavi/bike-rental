@@ -14,6 +14,7 @@
         <v-hover v-slot="{ hover }" close-delay="200">
           <v-card
             class="my-3 yellow transition-swing"
+            color="secondary"
             :elevation="hover ? 24 : 6"
             :class="{ 'on-hover': hover }"
           >
@@ -24,11 +25,11 @@
                   xs12
                   justify-center
                   d-flex
-                  style="overflow-y: auto; height: auto"
+                  style="overflow-y: auto; height: 60px"
                 >
-                  <nuxt-link :to="`/stations/${station.id}`">
-                    {{ station.name }}
-                  </nuxt-link>
+                  <h3>{{ station.name }}</h3>
+                  <v-spacer />
+                  <v-btn :to="`/stations/${station.id}`" rounded style="color: rgb(91, 133, 170)">KUNJUNGI</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -61,7 +62,7 @@ export default {
   transition: opacity 0.4s ease-in-out;
 }
 .v-card:not(.on-hover) {
-  opacity: 0.6;
+  opacity: 0.65;
 }
 .show-btns {
   color: rgba(255, 255, 255, 1) !important;

@@ -1,10 +1,10 @@
 <template>
-  <v-app dark secondary>
+  <v-app>
     <v-navigation-drawer v-model="drawer" temporary app src="/img/bgDrawer.jpg">
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <img src="/img/logo.png" alt="Logo" />
+            <span>City Bike</span>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="title">Calango</v-list-item-title>
@@ -36,7 +36,7 @@
       :class="{ expand: flat }"
     >
       <v-toolbar-title>
-        <v-img src="/img/logo.png" max-width="50px" />
+        <span>City Bike</span>
       </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon
@@ -44,7 +44,7 @@
         class="mr-4"
         @click.stop="drawer = !drawer"
       />
-      <AuthButton v-else :items="items"/>
+      <AuthButton v-else :items="items" />
     </v-app-bar>
     <v-scale-transition>
       <v-btn
@@ -55,7 +55,7 @@
         fixed
         bottom
         right
-        color="secondary"
+        color="primary"
         @click="toTop"
       >
         <v-icon>mdi-arrow-up</v-icon>
@@ -64,6 +64,57 @@
     <v-main class="pt-0">
       <Nuxt />
     </v-main>
+    <v-footer padless style="background-color: black">
+      <v-container>
+        <v-row>
+          <v-col cols="12" sm="12" md="4" lg="4">
+            <h3 style="color: white">About us</h3>
+            <p style="color: white">
+              City Bike is part of nextbike GmbH, the world's most extensive
+              bike sharing provider with more than 300 cities across 26
+              countries in 4 continents. Providing cutting edge technology on
+              its bikes, nextbike enables a user friendly service that supports
+              cities in creating sustainable and integrated travel solutions.
+            </p>
+          </v-col>
+          <v-col cols="12" sm="12" md="4" lg="4">
+            <h3 style="color: white">Contact us</h3>
+            <p style="color: white">
+              City Bike - Jl. Cenderawasih, 17a, Jepara, SW9 8LA. Sponsorship:
+              nextbikeuk@nextbike.co.uk Press E-Mail: nathan@nathanrous.com
+              Customer Service 020 8166 9851 E-Mail: info@nextbike.co.uk
+            </p>
+          </v-col>
+          <v-col cols="12" sm="12" md="4" lg="4">
+            <h3 style="color: white">Follow us</h3>
+            <v-row>
+              <v-col cols="12" sm="6" lg="6">
+                <v-btn color="primary" style="padding: 40px 80px">
+                  <v-icon>mdi-facebook</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" lg="6">
+                <v-btn color="primary" style="padding: 40px 80px">
+                  <v-icon>mdi-twitter</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" lg="6">
+                <v-btn color="primary" style="padding: 40px 80px">
+                  <v-icon>mdi-instagram</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="12" sm="6" lg="6">
+                <v-btn color="primary" style="padding: 40px 80px">
+                  <v-icon>mdi-linkedin</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+        <br>
+        <code style="color: white">&copy; by Saluna Alavi</code>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 
@@ -93,11 +144,6 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Maps',
           to: '/maps',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Stations',
-          to: '/stations',
         },
       ],
       title: 'Bike Rental',
@@ -136,7 +182,7 @@ export default {
     },
     fab(value) {
       if (value) {
-        this.color = 'secondary'
+        this.color = 'primary'
         this.flat = false
       } else {
         this.color = 'transparent'
@@ -179,5 +225,14 @@ export default {
 .expand {
   height: 80px !important;
   padding-top: 10px;
+}
+</style>
+
+<style>
+.v-main {
+  background-image: url('~static/img/bgMain.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 </style>
