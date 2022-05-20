@@ -91,16 +91,16 @@
             <h3>Sepeda Digunakan</h3>
             <v-container class="mb-6" fluid>
               <v-row align="stretch" dense>
-                <section v-for="rent in rents" :key="rent.id">
-                  <v-col
-                    v-if="rent.user_id === params_id"
-                    offset-md2
-                    mx-auto
-                    cols="12"
-                    sm="6"
-                    md="6"
-                    lg="6"
-                  >
+                <v-col
+                  v-for="rent in rents" :key="rent.id"
+                  offset-md2
+                  mx-auto
+                  cols="12"
+                  sm="6"
+                  md="6"
+                  lg="6"
+                >
+                  <section v-if="rent.user_id === params_id">
                     <v-hover v-slot="{ hover }" close-delay="200">
                       <v-card
                         class="my-3 yellow transition-swing"
@@ -165,8 +165,8 @@
                         </v-card-title>
                       </v-card>
                     </v-hover>
-                  </v-col>
-                </section>
+                  </section>
+                </v-col>
               </v-row>
             </v-container>
           </section>
