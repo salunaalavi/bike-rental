@@ -63,7 +63,7 @@ export default {
       valid: false,
       username: '',
       password: '',
-      show1: false,
+      showPassword: false,
       nameRules: [(v) => !!v || 'This Field is required'],
       rules: {
         required: (value) => !!value || 'Required.',

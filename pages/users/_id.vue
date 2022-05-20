@@ -92,8 +92,7 @@
             <v-container class="mb-6" fluid>
               <v-row align="stretch" dense>
                 <v-col
-                  v-for="rent in rents"
-                  :key="rent.id"
+                  v-for="rent in rents" :key="rent.id"
                   offset-md2
                   mx-auto
                   cols="12"
@@ -101,66 +100,72 @@
                   md="6"
                   lg="6"
                 >
-                  <v-hover v-if="rent.user_id === params_id" v-slot="{ hover }" close-delay="200">
-                    <v-card
-                      class="my-3 yellow transition-swing"
-                      :elevation="hover ? 24 : 6"
-                      :class="{ 'on-hover': hover }"
-                      color="secondary"
-                      shaped
-                      outlined
-                    >
-                      <v-img
-                        height="auto"
-                        src="https://res.cloudinary.com/sal15/image/upload/v1652776414/pngwing.com_qbgem6.png"
-                      ></v-img>
-                      <v-container fill-height fluid>
-                        <v-layout>
-                          <v-flex
-                            xs12
-                            justify-center
-                            d-flex
-                            style="overflow-y: auto; height: auto"
-                          >
-                            <v-menu offset-y>
-                              <template #activator="{ on, attrs }">
-                                <v-btn
-                                  color="primary"
-                                  dark
-                                  outlined
-                                  rounded
-                                  v-bind="attrs"
-                                  v-on="on"
-                                >
-                                  Kembalikan
-                                </v-btn>
-                              </template>
-                              <v-list color="info">
-                                <v-list-item
-                                  v-for="station in stations"
-                                  :key="station.id"
-                                >
+                  <section v-if="rent.user_id === params_id">
+                    <v-hover v-slot="{ hover }" close-delay="200">
+                      <v-card
+                        class="my-3 yellow transition-swing"
+                        :elevation="hover ? 24 : 6"
+                        :class="{ 'on-hover': hover }"
+                        color="secondary"
+                        shaped
+                        outlined
+                      >
+                        <v-img
+                          height="auto"
+                          src="https://res.cloudinary.com/sal15/image/upload/v1652776414/pngwing.com_qbgem6.png"
+                        ></v-img>
+                        <v-container fill-height fluid>
+                          <v-layout>
+                            <v-flex
+                              xs12
+                              justify-center
+                              d-flex
+                              style="overflow-y: auto; height: auto"
+                            >
+                              <v-menu offset-y>
+                                <template #activator="{ on, attrs }">
                                   <v-btn
                                     color="primary"
+                                    dark
                                     outlined
                                     rounded
-                                    @click="
-                                      returns(rent.id, station.id, rent.bike_id)
-                                    "
+                                    v-bind="attrs"
+                                    v-on="on"
                                   >
-                                    {{ station.name }}
+                                    Kembalikan
                                   </v-btn>
-                                </v-list-item>
-                              </v-list>
-                            </v-menu>
-                          </v-flex>
-                        </v-layout>
-                      </v-container>
-                      <v-card-title justify-center class="d-block">
-                        <h3 class="text-center">{{ rent.bike.name }}</h3>
-                      </v-card-title>
-                    </v-card>
-                  </v-hover>
+                                </template>
+                                <v-list color="info">
+                                  <v-list-item
+                                    v-for="station in stations"
+                                    :key="station.id"
+                                  >
+                                    <v-btn
+                                      color="primary"
+                                      outlined
+                                      rounded
+                                      @click="
+                                        returns(
+                                          rent.id,
+                                          station.id,
+                                          rent.bike_id
+                                        )
+                                      "
+                                    >
+                                      {{ station.name }}
+                                    </v-btn>
+                                  </v-list-item>
+                                </v-list>
+                              </v-menu>
+                            </v-flex>
+                          </v-layout>
+                        </v-container>
+                        <v-card-title justify-center class="d-block">
+                          <h3 class="text-center">{{ rent.bike.name }}</h3>
+                        </v-card-title>
+                      </v-card>
+                    </v-hover>
+                  </section>
                 </v-col>
               </v-row>
             </v-container>

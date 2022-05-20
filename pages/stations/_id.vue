@@ -27,10 +27,8 @@ export default {
   middleware: 'authenticated',
   data: () => ({
     searchTerm: '',
-    loading: 0
   }),
   apollo: {
-    $loadingKey: 'loading',
     bikes: {
       query: FETCH_BIKES,
       prefetch: ({ route }) => ({ id: route.params.id }),

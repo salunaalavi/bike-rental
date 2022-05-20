@@ -107,6 +107,56 @@ export default {
     },
   },
 
+  sitemap: {
+    async routes() {
+      const routes = []
+      const fetcher = require('node-fetch')
+      const { gql } = require('apollo-boost')
+      const ApolloBoost = require('apollo-boost')
+      const ApolloClient = ApolloBoost.default
+      const client = new ApolloClient({
+        fetch: fetcher,
+        uri: 'https://bike-station.hasura.app/v1/graphql',
+      })
+
+      const GET_USERS = gql`
+        query {
+          users {
+            id
+            username
+          }
+        }
+      `
+      
+      const GET_STATIONS = gql`
+        query {
+          stations {
+            id
+            name
+          }
+        }
+      `
+
+      const users = await client.query({
+        query: GET_USERS,
+      })
+
+      const stations = await client.query({
+        query: GET_STATIONS,
+      })
+
+      users.data.users.forEach(user => {
+        routes.push(`/users/${user.id}`)
+      })
+
+      stations.data.stations.forEach(station => {
+        routes.push(`/stations/${station.id}`)
+      })
+
+      return routes
+    },
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
