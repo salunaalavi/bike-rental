@@ -1,9 +1,11 @@
 <template>
-  <GoogleMap />
+  <v-main>
+    <GoogleMap />
+  </v-main>
 </template>
 
 <script>
 export default {
-  name: "IndexPage",
-};
+  name: 'IndexPage',
+}
 </script>

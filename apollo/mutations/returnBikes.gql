@@ -1,10 +1,10 @@
 mutation return($rentId: uuid, $stationId: uuid, $bikeId: uuid) {
-  update_Bikes(where: {id: {_eq: $bikeId}}, _set: {isRented: true, station_id: $stationId}) {
+  update_bikes(where: {id: {_eq: $bikeId}}, _set: {available: true, station_id: $stationId}) {
     returning {
       id
     }
   }
-  delete_Rents(where: {id: {_eq: $rentId}}) {
+  delete_rents(where: {id: {_eq: $rentId}}) {
     returning {
       id
     }

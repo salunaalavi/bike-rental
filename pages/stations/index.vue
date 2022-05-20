@@ -1,30 +1,45 @@
 <template>
-  <v-container>
-    <h1>Stations</h1>
-    <v-main>
-      <section v-for="station in Stations" :key="station.id">
-        <nuxt-link :to="`/stations/${station.id}`">
-          {{ station.name }}
-        </nuxt-link>
-      </section>
-    </v-main>
-  </v-container>
+  <v-main v-if="!loading">
+    <v-container>
+      <h1>Stations</h1>
+      <v-text-field v-model="searchTerm" placeholder="Search" @input="searchItems"></v-text-field>
+      <StationCard :stations="stations" />
+    </v-container>
+  </v-main>
 </template>
 
 <script>
-import stations from '~/apollo/queries/fetchStations'
+import FETCH_STATIONS from '~/apollo/queries/fetchStations'
+import StationCard from '~/components/stations/StationCard'
 
 export default {
   name: 'StationsPage',
+  components: {
+    StationCard,
+  },
   middleware: 'authenticated',
+  data: () => ({
+    searchTerm: '',
+    loading: 0
+  }),
   apollo: {
-    Stations: {
+    $loadingKey: 'loading',
+    stations: {
       prefetch: true,
-      query: stations,
+      query: FETCH_STATIONS,
     },
   },
   head: {
     title: 'Stations',
+  },
+  methods: {
+    searchItems(e) {
+      if (!this.searchTerm) {
+        this.stations = this.stations.filter(station => station.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      } else {
+        this.stations = this.stations.filter(station => station.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      }
+    },
   },
 }
 </script>

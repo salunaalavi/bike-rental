@@ -1,0 +1,7 @@
+mutation address($id: uuid, $provinsi: String, $kota: String, $kecamatan: String, $kelurahan: String) {
+  update_users(where: {id: {_eq: $id}}, _set: {provinsi: $provinsi, kota: $kota, kecamatan: $kecamatan, kelurahan: $kelurahan}) {
+    returning {
+      id
+    }
+  }
+}

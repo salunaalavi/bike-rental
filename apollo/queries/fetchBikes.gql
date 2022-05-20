@@ -1,7 +1,7 @@
 query bikes($id: uuid) {
-  Bikes(where: { station_id: { _eq: $id } }) {
+  bikes(where: { station_id: { _eq: $id } }) {
     id
     name
-    isRented
+    available
   }
 }

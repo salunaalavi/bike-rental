@@ -1,9 +1,9 @@
 query user($user_id: uuid) {
-  Rents(where: {user_id: {_eq: $user_id}}) {
+  rents(where: {user_id: {_eq: $user_id}}) {
     id
     user_id
     bike_id
-    Bike {
+    bike {
       name
     }
   }

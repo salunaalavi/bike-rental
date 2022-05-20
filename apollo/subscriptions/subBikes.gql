@@ -1,7 +1,7 @@
 subscription {
-  Bikes {
+  bikes {
     id
     name
-    isRented
+    available
   }
 }

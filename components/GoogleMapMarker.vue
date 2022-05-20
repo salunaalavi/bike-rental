@@ -2,7 +2,7 @@
   <v-container>
     <gmap-marker
       :key="station.id"
-      :position="station.Position"
+      :position="station.position"
       @click="toggleInfoWindow(station, station.id)"
     >
       <gmap-info-window
@@ -10,16 +10,16 @@
         :opened="infoWinOpen"
         @closeclick="infoWinOpen = false"
       >
-        <b style="color: black">{{ station.name }}</b>
+        <span style="color: black; font-size: 16px">{{ station.name }}</span>
         <br />
         <br />
-        <code style="color: black">
-          Lat: {{ station.Position.lat }},
-          <br />
-          Lng: {{ station.Position.lng }}
-        </code>
+        <span style="color: black">
+          {{ station.position.address }}
+        </span>
+        <br />
+        <br />
         <router-link style="white" :to="`/stations/${station.id}`">
-          {{ station.name }}}}
+          {{ station.name }}
         </router-link>
       </gmap-info-window>
     </gmap-marker>

@@ -1,10 +1,11 @@
 subscription {
-  Stations {
+  stations {
     id
     name
-    Position {
+    position {
       lat
       lng
+      address
     }
   }
 }

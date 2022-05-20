@@ -1,0 +1,7 @@
+mutation registration($name: String, $username: String, $email: String, $password: String){
+  insert_users(objects: {name: $name, password: $password, email: $email, username: $username}) {
+    returning {
+      id
+    }
+  }
+}

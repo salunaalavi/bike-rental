@@ -1,5 +1,5 @@
-query user($id: uuid) {
-  users(where: {id: {_eq: $id}}) {
+subscription($username: String) {
+  users(where: {username: {_eq: $username}}) {
     id
     name
     username
