@@ -1,0 +1,11 @@
+{
+  stations {
+    id
+    name
+    position {
+      lat
+      lng
+      address
+    }
+  }
+}

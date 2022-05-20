@@ -1,0 +1,12 @@
+subscription {
+  users {
+    id
+    name
+    username
+    email
+    provinsi
+    kota
+    kecamatan
+    kelurahan
+  }
+}

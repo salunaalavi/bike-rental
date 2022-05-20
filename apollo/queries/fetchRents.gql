@@ -1,0 +1,10 @@
+query user($user_id: uuid) {
+  rents(where: {user_id: {_eq: $user_id}}) {
+    id
+    user_id
+    bike_id
+    bike {
+      name
+    }
+  }
+}

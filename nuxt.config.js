@@ -24,7 +24,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/localStorage.js',ssr: false },
+    { src: "~/plugins/google-maps.js" },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -43,7 +46,20 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/apollo',
   ],
+
+  apollo: {
+    cookieAttributes: {
+      expires: 7,
+    },
+    includeNodeModules: true,
+    authenticationType: "Bearer",
+    errorHandler: "~/plugins/apollo-error-handler.js",
+    clientConfigs: {
+      default: "~/apollo/clientConfig.js",
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -53,8 +69,17 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      name: 'bike-rental',
+      author: 'salunaalavi',
+    },
     manifest: {
       lang: 'en',
+      name: 'bike-rental',
+      description: 'bike-rental - a vue.js frontend project by @salunaalavi',
+      useWebmanifestExtension: false,
+      start_url: '/',
+      theme_color: '#FF6666',
     },
   },
 
@@ -62,17 +87,22 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
+        light: {
+          primary: '#5B85AA',
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
+          secondary: '#21D19F',
+          info: '#6BA368',
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+      },
+    },
+    treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Josefin Sans'
       },
     },
   },

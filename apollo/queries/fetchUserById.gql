@@ -1,0 +1,12 @@
+query user($id: uuid) {
+  users(where: {id: {_eq: $id}}) {
+    id
+    name
+    username
+    email
+    provinsi
+    kota
+    kecamatan
+    kelurahan
+  }
+}

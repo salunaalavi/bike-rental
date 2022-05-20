@@ -1,0 +1,12 @@
+mutation rental($bikeId: uuid, $userId: uuid) {
+  update_bikes(where: {id: {_eq: $bikeId}}, _set: {available: false}) {
+    returning {
+      id
+    }
+  }
+  insert_rents(objects: {bike_id: $bikeId, user_id: $userId}) {
+    returning {
+      id
+    }
+  }
+}

@@ -1,0 +1,10 @@
+subscription {
+  rents {
+    id
+    user_id
+    bike_id
+    bike {
+      name
+    }
+  }
+}

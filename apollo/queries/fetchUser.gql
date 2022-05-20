@@ -1,0 +1,12 @@
+query user($username: String) {
+  users(where: {username: {_eq: $username}}) {
+    id
+    name
+    username
+    email
+    provinsi
+    kota
+    kecamatan
+    kelurahan
+  }
+}
