@@ -1,5 +1,5 @@
 <template>
-  <v-main v-if="!loading">
+  <v-main>
     <v-container>
       <h1>Stations</h1>
       <v-text-field v-model="searchTerm" placeholder="Search" @input="searchItems"></v-text-field>
@@ -20,10 +20,8 @@ export default {
   middleware: 'authenticated',
   data: () => ({
     searchTerm: '',
-    loading: 0
   }),
   apollo: {
-    $loadingKey: 'loading',
     stations: {
       prefetch: true,
       query: FETCH_STATIONS,

@@ -1,14 +1,10 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" temporary app src="/img/bgDrawer.jpg">
+    <v-navigation-drawer v-model="drawer" temporary app color="secondary">
       <v-list>
         <v-list-item>
-          <v-list-item-avatar>
-            <span>City Bike</span>
-          </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title class="title">Calango</v-list-item-title>
-            <v-list-item-subtitle>WEB</v-list-item-subtitle>
+            <v-list-item-title class="title">City Bike</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -16,14 +12,7 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" link>
-          <v-list-item-icon class="justify-center">
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title class="subtitile-1" v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+        <AuthButtonSide :items="items"/>
       </v-list>
     </v-navigation-drawer>
 
@@ -71,7 +60,8 @@
             <h3 style="color: white">About us</h3>
             <p style="color: white">
               City Bike merupakan solusi bagi anda yang ingin menghindari macet,
-              melestarikan bumi dan pastinya menyehatkan. Jadi jangan ragu untuk menggunakan jasa kami
+              melestarikan bumi dan pastinya menyehatkan. Jadi jangan ragu untuk
+              menggunakan jasa kami
             </p>
           </v-col>
           <v-col cols="12" sm="12" md="4" lg="4">
@@ -117,12 +107,14 @@
 
 <script>
 import AuthButton from '~/components/navbar/AuthButton'
+import AuthButtonSide from '~/components/navbar/AuthButtonSide'
 import FETCH_USER from '~/apollo/queries/fetchUser'
 
 export default {
   name: 'DefaultLayout',
   components: {
     AuthButton,
+    AuthButtonSide,
   },
   data() {
     return {
