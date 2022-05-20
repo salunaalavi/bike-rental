@@ -7,9 +7,9 @@
             <v-col cols="12" md="6" xl="8">
               <h1 class="display-2 font-weight-bold mb-4" style="color: rgb(91, 133, 170)">City Bike</h1>
               <h1 class="font-weight-light" style="color: rgb(91, 133, 170)">
-                Lorem ipsum dolor sit amet consectetur <br />
-                adipisicing elit. Maiores porro voluptatibus <br />
-                delectus nam optio harum!
+                Menuju integrasi antar moda transportasi <br />
+                dengan mencintai bumi dan menjaganya tetap lestari <br />
+                City Bike hadir dengan cinta dan dari hati
               </h1>
               <v-btn
                 class="mt-5"
@@ -137,18 +137,18 @@ export default {
       features: [
         {
           img: require("~/static/img/Malta_App.png"),
-          title: "How it Works",
-          text: "Sign up once and rent bikes via app, BikeComputer, terminal or hotline call.",
+          title: "Bagaimana Cara Kerjanya",
+          text: "Silahkan registrasi dan langsung nikmati pelayanan dari City Bike.",
         },
         {
           img: require("~/static/img/SliderBerlin2_2.jpg"),
-          title: "Free",
-          text: "Get a bike to roam arround the city, without even buy one.",
+          title: "Gratis",
+          text: "Nyamankan diri anda dengan layanan gratis dari City Bike.",
         },
         {
           img: require("~/static/img/SliderBerlin3.jpg"),
-          title: "Locations",
-          text: "Rent a nextbike anytime, located in almost 300 cities or in 26 countries worldwide.",
+          title: "Lokasi",
+          text: "Sewa sepeda dari City Bike dengan mudah dari berbagai lokasi",
         },
       ],
     };

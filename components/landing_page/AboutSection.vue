@@ -5,9 +5,9 @@
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="7">
-              <h1 class="font-weight-light display-2">Sobre</h1>
+              <h1 class="font-weight-light display-2">City Bike!!</h1>
               <h1 class="font-weight-light display-1 mb-3">
-                Lorem ipsum dolor!
+                Apa saja keunggulan kami?
               </h1>
               <v-row>
                 <v-col cols="12" class="d-flex align-center">
@@ -17,9 +17,9 @@
                     class="mr-4"
                   />
                   <p class="text-justify" style="color: black;">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Hemat uang anda dengan bersepeda tanpa pungutan biaya.
+                    Dengan integrasi stasiun di berbagai lokasi.
+                    Jadi jangan khawatir untuk mencoba City Bike.
                   </p>
                 </v-col>
                 <v-col cols="12" class="d-flex align-center">
@@ -29,9 +29,9 @@
                     class="mr-4"
                   />
                   <p class="text-justify" style="color: black;">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Layanan call center yang siap sedia 24/7 senantiasa menemani anda.
+                    Jangan ragu untuk bertanya, kami siap melayani.
+                    Dengan service center professional yang siap melayani sepenuh hati.
                   </p>
                 </v-col>
                 <v-col cols="12" class="d-flex align-center">
@@ -41,9 +41,9 @@
                     class="mr-4"
                   />
                   <p class="text-justify" style="color: black;">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Kerja cepat, kerja akurat dan ikhlas dari kami untuk anda.
+                    Untuk melayani pelanggan, kami merupakan yang tercepat.
+                    Jangan ragu untuk menggunakan produk-produk kami.
                   </p>
                 </v-col>
               </v-row>

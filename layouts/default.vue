@@ -70,19 +70,16 @@
           <v-col cols="12" sm="12" md="4" lg="4">
             <h3 style="color: white">About us</h3>
             <p style="color: white">
-              City Bike is part of nextbike GmbH, the world's most extensive
-              bike sharing provider with more than 300 cities across 26
-              countries in 4 continents. Providing cutting edge technology on
-              its bikes, nextbike enables a user friendly service that supports
-              cities in creating sustainable and integrated travel solutions.
+              City Bike merupakan solusi bagi anda yang ingin menghindari macet,
+              melestarikan bumi dan pastinya menyehatkan. Jadi jangan ragu untuk menggunakan jasa kami
             </p>
           </v-col>
           <v-col cols="12" sm="12" md="4" lg="4">
             <h3 style="color: white">Contact us</h3>
             <p style="color: white">
               City Bike - Jl. Cenderawasih, 17a, Jepara, SW9 8LA. Sponsorship:
-              nextbikeuk@nextbike.co.uk Press E-Mail: nathan@nathanrous.com
-              Customer Service 020 8166 9851 E-Mail: info@nextbike.co.uk
+              citybike@citybike.co.id Press E-Mail: salunaalavi@gmail.com
+              Customer Service 080 8166 9851 E-Mail: info@citybike.co.id
             </p>
           </v-col>
           <v-col cols="12" sm="12" md="4" lg="4">
@@ -111,7 +108,7 @@
             </v-row>
           </v-col>
         </v-row>
-        <br>
+        <br />
         <code style="color: white">&copy; by Saluna Alavi</code>
       </v-container>
     </v-footer>

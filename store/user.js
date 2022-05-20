@@ -1,4 +1,4 @@
-import axios from "axios";
+import LOGIN_USER from '~/apollo/queries/fetchUser.gql'
 
 export const state = () => {
 
@@ -7,15 +7,20 @@ export const state = () => {
 export const actions = {
   async login({ commit }, { username }) {
     try {
-      const { data } = await axios.post("/api/login", {username})
+      const client = this.app.apolloProvider.defaultClient
+      const { data } = await client.query({
+        query: LOGIN_USER,
+        variables: {
+          username
+        }
+      })
       if (data.error) {
         commit("LOGIN_FAIL", data.error, { root: true });
         return;
       }
 
       const user = {
-        username, 
-        token: data.accessToken
+        username,
       }
       commit("LOGIN_SUCCESS");
       commit("SAVE_AUTH", user, { root: true })
