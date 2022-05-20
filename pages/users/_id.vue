@@ -101,7 +101,7 @@
                   md="6"
                   lg="6"
                 >
-                  <v-hover v-slot="{ hover }" close-delay="200">
+                  <v-hover v-if="rent.user_id === params_id" v-slot="{ hover }" close-delay="200">
                     <v-card
                       class="my-3 yellow transition-swing"
                       :elevation="hover ? 24 : 6"
